@@ -6,9 +6,11 @@ public abstract class Hand {
 	
 	private List<Card> cards;
 	
+	public Hand() {};
+	
 	public abstract void hand();
 	
-	public abstract void addCard();
+	public abstract void addCard(Card card);
 	
 	public abstract void clear();
 	
@@ -18,9 +20,12 @@ public abstract class Hand {
 	public String toString() {
 		return "Hand [cards=" + cards + "]";
 	}
+
 	
 	
 	
 	
 
 }
+
+
