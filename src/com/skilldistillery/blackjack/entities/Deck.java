@@ -24,16 +24,12 @@ public class Deck {
 	    }
 	}
 	
-//	public List<Card> getDeck(){
-//		return myCards;
-//	}
-
 	
 	public int checkDeckSize() {
 		return myCards.size();
 	}
 	
-	public void suffle() {
+	  public void shuffle() {
 		Collections.shuffle(myCards);
 	}
 	
