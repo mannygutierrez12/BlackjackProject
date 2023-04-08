@@ -5,11 +5,13 @@ import java.util.Scanner;
 public class Dealer {
 
 	private Deck deck;
+	private UsersHand usersHand;
 	private int numCardsInDeck;
 	private int userSumOfCards;
 
 	public Dealer() {
 		deck = new Deck();
+		usersHand = new UsersHand();
 		numCardsInDeck = deck.checkDeckSize();
 		userSumOfCards = 0;
 	}
@@ -34,6 +36,7 @@ public class Dealer {
 				String userInput = kb.nextLine();
 
 				if (userInput.equals("1")) {
+					
 					boolean continuePlaying = true;
 					while(continuePlaying) {
 						nextRound();
@@ -67,17 +70,51 @@ public class Dealer {
 	}
 
 	private void firstRound() {
+		
 		deck.suffle();
-		int firstRoundOfCards = 2;
-		if (firstRoundOfCards <= numCardsInDeck) {
-			for (int cardNumDealt = 0; cardNumDealt < firstRoundOfCards; cardNumDealt++) {
-				Card dealtCard = deck.dealCard();
-				userSumOfCards += dealtCard.getValue();
-				System.out.println("You now have " + dealtCard);
-			}
-			System.out.println("Your total is " + userSumOfCards);
+		int firstRoundFirstCard = 1;
+		int firstRoundSecondCard = 1;
+		System.out.println("The deck total cards**************** " + numCardsInDeck);
+		Card firstDealtCard = deck.dealCard();
+		System.out.println("The deck total cards**************** " + numCardsInDeck);
+		Card secondDealtCard = deck.dealCard();
+		
+		if (firstRoundFirstCard <= numCardsInDeck) {
+			for (int cardNumDealt = 0; cardNumDealt < firstRoundFirstCard; cardNumDealt++) {
+				
+				userSumOfCards += firstDealtCard.getValue();
+				usersHand.addCard(firstDealtCard);
+				
+			
+			
 		}
-	}
+		}
+		
+		if (firstRoundSecondCard <= numCardsInDeck) {
+			for (int cardNumDealt = 0; cardNumDealt < firstRoundSecondCard; cardNumDealt++) {
+				userSumOfCards += secondDealtCard.getValue();
+				usersHand.addCard(secondDealtCard);
+			}
+			
+			System.out.println("You now have " + firstDealtCard);
+			System.out.println("You now have " + secondDealtCard);
+			System.out.println("Your total is " + userSumOfCards);
+			
+			System.out.println("The user value " + usersHand.getHandValue());
+			System.out.println("**********************");
+			usersHand.hand();
+			System.out.println("**********************");
+			System.out.println("The deck total cards " + numCardsInDeck);
+		}
+		
+		}
+		
+		
+		
+		
+		
+		
+	
 
 	private void nextRound() {
 		int secondRoundOfCards = 1;
@@ -91,4 +128,7 @@ public class Dealer {
 		}
 
 	}
+	
+		
+	
 }

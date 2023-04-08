@@ -9,6 +9,9 @@ public class UsersHand extends Hand {
 	
 	private List<Card> myCards = new ArrayList<>();
 	
+	
+	
+	
 	public UsersHand() {
 		super();
 		// TODO Auto-generated constructor stub
