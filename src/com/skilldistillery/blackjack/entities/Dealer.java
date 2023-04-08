@@ -22,6 +22,7 @@ public class Dealer {
 		dealersHand = new DealersHand();
 		numCardsInDeck = deck.checkDeckSize();
 		userSumOfCards = 0;
+		dealerSumOfCards = 0;
 	}
 
 	public void run() {
@@ -49,6 +50,13 @@ public class Dealer {
 
 					boolean continuePlaying = true;
 					while (continuePlaying) {
+						
+						if(userSumOfCards > 21) {
+							comparisonScore();
+							break;
+						}
+						
+						
 						userNextRound();
 
 						System.out.println("Please type 1 to hit or any other button to stand");
@@ -57,7 +65,10 @@ public class Dealer {
 							userNextRound();
 						} else {
 							System.out.println("Your total is " + userSumOfCards);
+							dealerNextRound();
+							comparisonScore();
 							continuePlaying = false;
+							keepPlaying = false;
 						}
 					}
 				} else {
@@ -139,7 +150,6 @@ public class Dealer {
 			}
 
 			System.out.println("The dealer has " + secondDealtCard);
-			System.out.println("The dealer total is " + dealerSumOfCards);
 			System.out.println("The deck size is " + deck.checkDeckSize());
 
 		}
@@ -147,27 +157,55 @@ public class Dealer {
 
 	private void userNextRound() {
 		int secondRoundOfCards = 1;
+		Card nextDealtCard = deck.dealCard();
 		if (secondRoundOfCards <= numCardsInDeck) {
 			for (int cardNumDealt = 0; cardNumDealt < secondRoundOfCards; cardNumDealt++) {
-				Card dealtCard = deck.dealCard();
-				userSumOfCards += dealtCard.getValue();
+				userSumOfCards += nextDealtCard .getValue();
 			}
+			
+			System.out.println("You now have " + nextDealtCard);
 			System.out.println("Your total is " + userSumOfCards);
-			System.out.println("You now have " + dealtCard);
+			
+			
+			
+			
+
 		}
 
 	}
 
 	private void dealerNextRound() {
-		int dealerRoundOfCards = 1;
-		if (dealerRoundOfCards <= numCardsInDeck) {
-			for (int cardNumDealt = 0; cardNumDealt < dealerRoundOfCards; cardNumDealt++) {
-				Card dealtCard = deck.dealCard();
-				dealerSumOfCards += dealtCard.getValue();
+
+		if (dealerSumOfCards < 17) {
+
+			boolean lessThan17 = true;
+
+			while (lessThan17) {
+				
+				int dealerRoundOfCards = 1;
+				if (dealerRoundOfCards <= numCardsInDeck) {
+					
+					for (int cardNumDealt = 0; cardNumDealt < dealerRoundOfCards; cardNumDealt++) {
+						Card dealtCard = deck.dealCard();
+						dealerSumOfCards += dealtCard.getValue();
+						dealersHand.addCard(dealtCard);
+						System.out.println("The dealer's total score is " + dealerSumOfCards);
+						System.out.println("The dealer's new card is " + dealtCard);
+
+					}
+					
+
+				}
+				
+				if (dealerSumOfCards >= 17) {
+					lessThan17 = false;
+				}
 
 			}
-			System.out.println("Your total is " + dealerSumOfCards);
-			System.out.println("You now have " + dealtCard);
+
+		} else {
+			comparisonScore();
+
 		}
 
 	}
@@ -178,28 +216,37 @@ public class Dealer {
 			System.out.println("It is a Push");
 
 		}
-		
+
 		else if (userSumOfCards == 21) {
 			System.out.println("That's a BlackJack");
 			System.out.println("You are the Winner");
 		}
-		
+
 		else if (dealerSumOfCards == 21) {
 			System.out.println("The dealer has a BlackJack");
 			System.out.println("The Dealer wins");
 		}
-		
+
 		else if (userSumOfCards > 21) {
 			System.out.println("Bust");
 			System.out.println("The Dealer wins");
 		}
-		
+
+		else if (dealerSumOfCards > 21) {
+			System.out.println("Dealer Bust");
+			System.out.println("You win");
+		}
+
 		else if (userSumOfCards == dealerSumOfCards) {
 			System.out.println("It is a draw");
 		}
-		
+
 		else if (userSumOfCards > dealerSumOfCards) {
 			System.out.println("You win");
+		}
+
+		else {
+			System.out.println("The Dealer wins");
 		}
 
 	}
