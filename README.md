@@ -2,7 +2,7 @@
 
 <h2>Overview<h/2>
 
-This is our fourth project for this cohort, in which we aim to create an application that simulates the game of Blackjack. The objective of the game is for multiple players to bet against the house on who can get closer to 21 or achieve a score of 21 in their first try. In our project, we will create an application with two players, including the dealer.
+<p>This is our fourth project for this cohort, in which we aim to create an application that simulates the game of Blackjack. The objective of the game is for multiple players to bet against the house on who can get closer to 21 or achieve a score of 21 in their first try. In our project, we will create an application with two players, including the dealer.</p>
 
 <h3>Rules of the game</h3>
 
@@ -20,7 +20,7 @@ This is our fourth project for this cohort, in which we aim to create an applica
 <li>Washington Post Games Section for comparison purposes</li>
 </ol>
 
-<h2>Lessons learned<h/2>
+<h2>Lessons learned</h2>
 
 <p>This project has been one of our most challenging to date. We have incorporated lessons learned from the first week to the current stage, making it a mix of all our learning experiences. One of the biggest challenges we faced was incorporating while loops without creating an infinite loop</p>
 
