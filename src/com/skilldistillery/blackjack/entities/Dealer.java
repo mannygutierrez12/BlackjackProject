@@ -41,6 +41,7 @@ public class Dealer {
 				dealerFirstRound();
 
 				if (userSumOfCards == 21) {
+					System.out.println("1111111111111111111");
 					comparisonScore();
 					keepPlaying = false;
 				} else {
@@ -54,10 +55,12 @@ public class Dealer {
 							userNextRound();
 
 							if (userSumOfCards > 21) {
+								System.out.println("2222222222222222222222");
 								comparisonScore();
 								keepPlaying = false;
 								continuePlaying = false;
 							} else if (userSumOfCards == 21) {
+								System.out.println("3333333333333333333333");
 								comparisonScore();
 								keepPlaying = false;
 								continuePlaying = false;
@@ -65,7 +68,7 @@ public class Dealer {
 						} else {
 							System.out.println("Your total is " + userSumOfCards);
 							dealerNextRound();
-							comparisonScore();
+							System.out.println("44444444444444");
 							keepPlaying = false;
 							continuePlaying = false;
 						}
@@ -184,12 +187,14 @@ public class Dealer {
 				}
 
 				if (dealerSumOfCards >= 17) {
+					comparisonScore();
 					lessThan17 = false;
 				}
 
 			}
 
 		} else {
+			System.out.println("555555555555555555");
 			comparisonScore();
 
 		}
