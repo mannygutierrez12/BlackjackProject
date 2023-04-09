@@ -1,8 +1,12 @@
 package com.skilldistillery.blackjack.app;
 
+import com.skilldistillery.blackjack.entities.Dealer;
+
 public class BlackJackApp {
 
 	public static void main(String[] args) {
-		Deck deck = new Deck();
-	}
+		Dealer dealer = new Dealer();
+		dealer.run();
+		
+}
 }
