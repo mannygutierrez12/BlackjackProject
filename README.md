@@ -1,6 +1,6 @@
 <h1>The Blackjack Project<h/1>
 
-<h2>Overview<h/2>
+<h2>Overview</h2>
 
 <p>This is our fourth project for this cohort, in which we aim to create an application that simulates the game of Blackjack. The objective of the game is for multiple players to bet against the house on who can get closer to 21 or achieve a score of 21 in their first try. In our project, we will create an application with two players, including the dealer.</p>
 
