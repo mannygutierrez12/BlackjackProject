@@ -41,9 +41,8 @@ public class Dealer {
 				dealerFirstRound();
 
 				if (userSumOfCards == 21) {
-					System.out.println("1111111111111111111");
 					comparisonScore();
-					keepPlaying = false;
+					
 				} else {
 					boolean continuePlaying = true;
 
@@ -55,21 +54,16 @@ public class Dealer {
 							userNextRound();
 
 							if (userSumOfCards > 21) {
-								System.out.println("2222222222222222222222");
 								comparisonScore();
-								keepPlaying = false;
 								continuePlaying = false;
 							} else if (userSumOfCards == 21) {
-								System.out.println("3333333333333333333333");
+
 								comparisonScore();
-								keepPlaying = false;
 								continuePlaying = false;
 							}
 						} else {
 							System.out.println("Your total is " + userSumOfCards);
 							dealerNextRound();
-							System.out.println("44444444444444");
-							keepPlaying = false;
 							continuePlaying = false;
 						}
 					}
@@ -81,7 +75,30 @@ public class Dealer {
 			} else {
 				System.out.println("That is not a valid input.");
 			}
+			
+			boolean playAgain = true;
+			while (playAgain) {
+			    System.out.println("Would you like to play again? Type Yes or No");
+			    String userInput = kb.nextLine();
+
+			    if ("YESYesyesYy".contains(userInput)) {
+			    	run();
+			        
+			    } else if ("NONonoNnwefdf".contains(userInput)) {
+			        System.out.println("See you next time");
+			        keepPlaying = false;
+			        break;
+			        
+			    } else {
+			        System.out.println("That is not a valid input.");
+			        continue;
+			    }
+			}
 		}
+		
+		
+	
+		
 		kb.close();
 	}
 
@@ -179,7 +196,7 @@ public class Dealer {
 						Card dealtCard = deck.dealCard();
 						dealerSumOfCards += dealtCard.getValue();
 						dealersHand.addCard(dealtCard);
-						//System.out.println("The dealer's total score is " + dealerSumOfCards);
+						// System.out.println("The dealer's total score is " + dealerSumOfCards);
 						System.out.println("The dealer's new card is " + dealtCard);
 
 					}
@@ -194,7 +211,7 @@ public class Dealer {
 			}
 
 		} else {
-			System.out.println("555555555555555555");
+
 			comparisonScore();
 
 		}
