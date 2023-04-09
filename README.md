@@ -22,5 +22,5 @@
 
 <h2>Lessons learned</h2>
 
-<p>This project has been one of our most challenging to date. We have incorporated lessons learned from the first week to the current stage, making it a mix of all our learning experiences. One of the biggest challenges we faced was incorporating while loops without creating an infinite loop</p>
+<p>This project has been one of our most challenging to date. We have incorporated lessons learned from the first week to the current stage, making it a mix of all our learning experiences. One of the biggest challenges we faced was incorporating while loops without creating an infinite loop.</p>
 
