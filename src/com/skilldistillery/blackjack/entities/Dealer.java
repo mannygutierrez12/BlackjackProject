@@ -10,7 +10,6 @@ public class Dealer {
 	private Deck deck;
 	private UsersHand usersHand;
 	private DealersHand dealersHand;
-	private Card dealtCard;
 	private int numCardsInDeck;
 	private int userSumOfCards;
 	private int dealerSumOfCards;
@@ -30,76 +29,83 @@ public class Dealer {
 		boolean keepPlaying = true;
 
 		while (keepPlaying) {
-			System.out.println("Welcome to the Black Jack Table!!!");
-			System.out.println("Would you like to play now? Type Yes or No");
-			String userAnswer = kb.nextLine();
+			System.out.println(" ________________________________________________");
+			System.out.println("|       Welcome to the Black Jack Table!!!       |");
+			System.out.println("|             Let's the game begin!              |");
+			System.out.println("|________________________________________________|");
+			System.out.println();
 
-			if ("YESYesyesYy".contains(userAnswer)) {
-				System.out.println("Let's the game begin!");
-				userFirstRound();
-				System.out.println();
-				dealerFirstRound();
+			userFirstRound();
+			System.out.println();
+			dealerFirstRound();
 
-				if (userSumOfCards == 21) {
-					comparisonScore();
-					
-				} else {
-					boolean continuePlaying = true;
+			if (userSumOfCards == 21) {
+				comparisonScore();
 
-					while (continuePlaying) {
-						System.out.println("Please type 1 to hit or any other button to stand");
-						String userInput = kb.nextLine();
+			} else {
+				boolean continuePlaying = true;
 
-						if (userInput.equals("1")) {
-							userNextRound();
+				while (continuePlaying) {
+					System.out.println("___________________________________________________");
+					System.out.println();
+					System.out.println("Please type 1 to hit or any other button to stand");
+					String userInput = kb.nextLine();
 
-							if (userSumOfCards > 21) {
-								comparisonScore();
-								continuePlaying = false;
-							} else if (userSumOfCards == 21) {
+					if (userInput.equals("1")) {
+						userNextRound();
 
-								comparisonScore();
-								continuePlaying = false;
-							}
-						} else {
-							System.out.println("Your total is " + userSumOfCards);
-							dealerNextRound();
+						if (userSumOfCards > 21) {
+							comparisonScore();
+							continuePlaying = false;
+						} else if (userSumOfCards == 21) {
+
+							comparisonScore();
 							continuePlaying = false;
 						}
+					} else {
+						System.out.println("Your total is " + userSumOfCards);
+						dealerNextRound();
+						continuePlaying = false;
 					}
 				}
-			} else if ("NONonoNnwefdf".contains(userAnswer)) {
-				System.out.println("See you next time");
-				keepPlaying = false;
-				break;
-			} else {
-				System.out.println("That is not a valid input.");
 			}
-			
+
 			boolean playAgain = true;
 			while (playAgain) {
-			    System.out.println("Would you like to play again? Type Yes or No");
-			    String userInput = kb.nextLine();
+				System.out.println(" ___________________________________________________");
+				System.out.println("|   Would you like to play again? Type Yes or No    |");
+				System.out.println("|___________________________________________________|");
+				System.out.println();
+				System.out.println();
+				String userInput = kb.nextLine();
 
-			    if ("YESYesyesYy".contains(userInput)) {
-			    	run();
-			        
-			    } else if ("NONonoNnwefdf".contains(userInput)) {
-			        System.out.println("See you next time");
-			        keepPlaying = false;
-			        break;
-			        
-			    } else {
-			        System.out.println("That is not a valid input.");
-			        continue;
-			    }
+				if ("YESYesyesYy".contains(userInput)) {
+					deck = new Deck();
+					deck.shuffle();
+					dealersHand.clear();
+					usersHand.clear();
+					userSumOfCards = 0;
+					dealerSumOfCards = 0;
+					break;
+
+				}
+
+				else if ("NONonoNnwefdf".contains(userInput)) {
+					keepPlaying = false;
+					ConsoleConfig app = new ConsoleConfig();
+					app.mainMenu();
+					break;
+
+				} else {
+					System.out.println("That is not a valid input.");
+					continue;
+				}
+
 			}
+
 		}
+
 		
-		
-	
-		
-		kb.close();
 	}
 
 	private void userFirstRound() {
@@ -196,7 +202,6 @@ public class Dealer {
 						Card dealtCard = deck.dealCard();
 						dealerSumOfCards += dealtCard.getValue();
 						dealersHand.addCard(dealtCard);
-						// System.out.println("The dealer's total score is " + dealerSumOfCards);
 						System.out.println("The dealer's new card is " + dealtCard);
 
 					}
