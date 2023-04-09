@@ -79,6 +79,7 @@ public class Dealer {
 				System.out.println("That is not a valid input.");
 			}
 		}
+		kb.close();
 	}
 
 	private void userFirstRound() {
