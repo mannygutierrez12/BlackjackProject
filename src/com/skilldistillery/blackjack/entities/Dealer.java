@@ -107,8 +107,8 @@ public class Dealer {
 
 			}
 
-			System.out.println("You now have " + firstDealtCard);
-			System.out.println("You now have " + secondDealtCard);
+			System.out.print("You now have " + firstDealtCard);
+			System.out.println(" and " + secondDealtCard);
 			System.out.println("Your total is " + userSumOfCards);
 
 		}
@@ -175,7 +175,7 @@ public class Dealer {
 						Card dealtCard = deck.dealCard();
 						dealerSumOfCards += dealtCard.getValue();
 						dealersHand.addCard(dealtCard);
-						System.out.println("The dealer's total score is " + dealerSumOfCards);
+						//System.out.println("The dealer's total score is " + dealerSumOfCards);
 						System.out.println("The dealer's new card is " + dealtCard);
 
 					}
@@ -211,39 +211,39 @@ public class Dealer {
 			System.out.println("The dealer has a BlackJack");
 			System.out.println("The Dealer wins");
 			dealersHand.hand();
-			System.out.println(dealersHand.getHandValue());
+			System.out.println("The dealer total score is " + dealersHand.getHandValue());
 		}
 
 		else if (userSumOfCards > 21) {
 			System.out.println("Bust");
 			System.out.println("The Dealer wins");
 			dealersHand.hand();
-			System.out.println(dealersHand.getHandValue());
+			System.out.println("The dealer total score is " + dealersHand.getHandValue());
 		}
 
 		else if (dealerSumOfCards > 21) {
 			System.out.println("Dealer Bust");
 			System.out.println("You win");
 			dealersHand.hand();
-			System.out.println(dealersHand.getHandValue());
+			System.out.println("The dealer total score is " + dealersHand.getHandValue());
 		}
 
 		else if (userSumOfCards == dealerSumOfCards) {
 			System.out.println("It is a draw");
 			dealersHand.hand();
-			System.out.println(dealersHand.getHandValue());
+			System.out.println("The dealer total score is " + dealersHand.getHandValue());
 		}
 
 		else if (userSumOfCards > dealerSumOfCards) {
 			System.out.println("You win");
 			dealersHand.hand();
-			System.out.println(dealersHand.getHandValue());
+			System.out.println("The dealer total score is " + dealersHand.getHandValue());
 		}
 
 		else {
 			System.out.println("The Dealer wins");
 			dealersHand.hand();
-			System.out.println(dealersHand.getHandValue());
+			System.out.println("The dealer total score is " + dealersHand.getHandValue());
 		}
 
 	}
