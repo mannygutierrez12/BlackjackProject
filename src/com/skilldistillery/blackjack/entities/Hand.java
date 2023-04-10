@@ -27,5 +27,3 @@ public abstract class Hand {
 	
 
 }
-
-

@@ -10,7 +10,7 @@ public class BlackJackApp {
 	public static void main(String[] args) {
 		ConsoleConfig app = new ConsoleConfig();
 		Scanner kb = new Scanner(System.in);
-		
+
 		boolean turnOn = true;
 		while (turnOn) {
 			System.out.println(" ___________________________________________________________");
@@ -33,6 +33,6 @@ public class BlackJackApp {
 				continue;
 			}
 		}
-		
-}
+
+	}
 }

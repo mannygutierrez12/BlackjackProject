@@ -5,19 +5,11 @@ import java.util.List;
 
 public class UsersHand extends Hand {
 
-	
-	
 	private List<Card> myCards = new ArrayList<>();
-	
-	
-	
-	
+
 	public UsersHand() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-
-	
 
 	@Override
 	public void hand() {
@@ -33,27 +25,18 @@ public class UsersHand extends Hand {
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
 		myCards.clear();
-		
+
 	}
 
 	@Override
 	public int getHandValue() {
-		// TODO Auto-generated method stub
-		
+
 		int userSumOfCards = 0;
 		for (Card card : myCards) {
 			userSumOfCards += card.getValue();
 		}
 		return userSumOfCards;
 	}
-
-
-	
-	
-	
-	
-	
 
 }

@@ -105,7 +105,6 @@ public class Dealer {
 
 		}
 
-		
 	}
 
 	private void userFirstRound() {
