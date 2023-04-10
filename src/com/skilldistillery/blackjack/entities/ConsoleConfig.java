@@ -65,9 +65,9 @@ public class ConsoleConfig {
 
 			else if (userInput.equals("5")) {
 				finishedProgram = false;
-				turnOff();
+				localApp.turnOff();
 				break;
-				
+
 			}
 
 			else {
